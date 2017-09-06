@@ -1,0 +1,57 @@
+body {
+    font:15px/1.5 Arial, Helevetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+.container {
+    overflow:hidden;
+    margin:auto;
+    width:80%;
+}
+
+
+ul {
+            margin: 0;
+            padding: 0;
+        }
+ header {
+            background: #353637;
+            color: #fff;
+            padding-top: 13px;
+            border-bottom: 3px solid #32a0c2;
+            margin-bottom: 20px;
+            padding-bottom:20px
+    
+}
+ header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        
+header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+                 }
+header #branding {
+            float: left;
+        }
+header #branding h1 {
+         margin: 0;
+        }
+        
+header nav {
+            float: right;
+            margin-top: 10px;
+        }
+#box {
+    text-align: center;
+    margin-top: 150px
+}
+header .highlight {
+    color: #CE2400;
+            font-weight: bold;
+}
