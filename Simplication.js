@@ -132,7 +132,7 @@
        
     final_Array.reverse();
        
-       console.log(final_Array);
+       return final_Array;
           
       } 
    
