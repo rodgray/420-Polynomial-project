@@ -7,16 +7,11 @@
 
   var coef_last = coef_array.length - 1;
 
-
-
  goFunction();
-
-
    
      function sortNumber(a,b) {
-          
-          return a-b;
-          
+       
+          return a-b;    
       }
    
    function goFunction() {
@@ -40,13 +35,11 @@
               
              // loop through the array of zeros to be pushed on the final array
              
-             for (var k = 0; k < Array_ofNumbers.length; k++) {
-                 
+             for (var k = 0; k < Array_ofNumbers.length; k++) {             
                             
                    var Numbers = Array_ofNumbers[k];
                     
-                    final_Array.push(Numbers) 
-                     
+                    final_Array.push(Numbers)                  
                 }
              
         final_Array.push(coef_array[1]);
@@ -77,13 +70,11 @@
                 // loop through the array of zeros to be pushed on the final array
                 
                 for (var k = 0; k < arrayOfNumbers.length; k++) {
-                    
-                        
+                                  
                    var Numbers = arrayOfNumbers[k];
                     
                     final_Array.push(Numbers) 
-                    
-                    
+                          
                 }
                   
                 
@@ -93,13 +84,9 @@
                 if (exp_array.length != coef_array.length) {
                     
                     final_Array.push(coef_array[coef_last]);
-                }
-        
-            
+                }             
         }
-             }
-       
-        
+             }  
               
            if (exp_array[exp_last] != 1) {
                
@@ -108,11 +95,9 @@
               var temp2 = repeatElem(0, exp_array[exp_last]-1);
                
                var arrayOfNumbers2 = temp2.map(Number);
-               
-               
+                       
                // loop through the array of zeros to be pushed on the final array
-    
-               
+          
                 for (var l = 0; l < arrayOfNumbers2.length; l++) {
                     
                         
@@ -124,9 +109,7 @@
                     
                     final_Array.push(Numbers2)
                     
-                }
-               
-              
+                }            
             }  
        }
        
@@ -141,9 +124,7 @@
       function repeatElem(elem, n){
         var arr = [];
              for (var i=0; i<n; i++) {
-               arr = arr.concat(elem);
-    
-             
+               arr = arr.concat(elem)       
              }
                   return arr;
 }
