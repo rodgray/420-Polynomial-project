@@ -5,38 +5,51 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=deivce-width, initial-scale-1, shrink-to-fit-no">
     <meta http-equiv="x-ua-compatible" content="ie=edge" >
-    <link rel="stylesheet" href="Polynomials.css"  type="text/css"/>
+    <link rel="stylesheet" href="main2.css"  type="text/css"/>
    <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+   
     </head>
 <body>
     <header>
         <div class="container">
             <div id="branding">
-                <h1>Poly<span class="highlight">Factor</span></h1></div>
+                <h1><span id="plusIcon"><i class="fa fa-plus-square" aria-hidden="true"></i></span> Polynomial<span class="highlight">Factor</span></h1></div>
             <nav>
     <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li><a href="#">Help</a></li>
+        <li><a href="/Examples.html">Examples</a></li>
+        <li><a href="/Help.html">Help</a></li>
         </ul>
             </nav>
         </div>
     </header>
     
     <section id="intro">
-        <p></p>
     
     </section>
     <section id= "box">
-   <form action="">
-       <input type="text" placeholder="Enter a problem">
-          <button type="submit" class="btn btn-danger">GO</button>
+        
+   <form action="" >
+       <tr>
+           <td> </td>
+           <td> Coefficent <input type="text" name="count" id= "coefficent" size="2"> </td>
+           <td> Exponent <input type ="text" id="exponent" size="1"> </td>
+           <td><button type="button" id="Addition" onclick="additionFunction()">Addition</button></td>
+           <td><button type="button" id="Difference" onclick="differenceFunction()">Difference</button></td>
+           <td><button type="button" id="addTerm" onclick="addFunction()">Add term</button></td>
+           <td><button type="button" id="removeTerm" onclick="removeFunction()" > Remove term</button></td>
+           <td><button type="submit" class="btn btn-danger"
+                       id="goButton" onclick="goFunction()">GO</button></td>
+       </tr>
     </form>
     
+   
     </section>
-    
-    
-    </body>
+    <section> 
+        <p id="output">Problem:f(x) = </p>
+    </section>
+       </body>
 </html>
