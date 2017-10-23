@@ -1,20 +1,107 @@
-
-  var exp_array = [4];
-
-  var coef_array = [5,3];
+ var coefficent = document.getElementById("coefficent");
+      
+        var exponent = document.getElementById("exponent");
+      
+        var coef_array = [];
+      
+        var exp_array = [];
+      
+     var  countofAddition = 0;
+      
+     var  countofDifference = 0;
+           
 
   var exp_last = exp_array.length - 1;
 
   var coef_last = coef_array.length - 1;
 
- goFunction();
+               var poly = "";       
+      
+          function addFunction() {
+              
+              coef_array.push(coefficent.value);
+              
+              exp_array.push(exponent.value);
+              
+              
+               poly = coefficent.value + 'x^' + exponent.value + " ";
+              
+              
+              
+ 
+        document.getElementById("output").innerHTML = document.getElementById("output").innerHTML + poly; 
+              
+              
+              
+        document.getElementById("coefficent").value = "";
+              document.getElementById("exponent").value = "";
+              
+          }    
+      
+      
+      
+     function removeFunction() {
+      
+      coef_array.pop();
+            
+      exp_array.pop(); 
+         
+         var string = document.getElementById("output").value;
+         
+         var inputlength = document.getElementById("output").innerHTML;
+         
+         
+         window.alert(inputlength);
+      
+      } 
+      
+         function additionFunction() {
+             
+             if (coef_array.length === 0 && exp_array.length === 0) {
+           
+           window.alert("Please enter at least one polynomial");
+        }
+             
+          
+             else {
+          document.getElementById("output").innerHTML += "+";
+             
+             countofAddition++;
+             }
+          
+      }
+      
+         function differenceFunction() {
+             
+             if (coef_array.length === 0 && exp_array.length === 0) {
+           
+           window.alert("Please enter at least one polynomial");
+        }
+             else {
+          
+          document.getElementById("output").innerHTML += "-";
+             
+             countofDifference++;
+                 
+             }
+          
+      }
+      
+
    
      function sortNumber(a,b) {
-       
-          return a-b;    
+          
+          return a-b;
+          
       }
    
    function goFunction() {
+       
+        if (coef_array.length === 0 && exp_array.length === 0) {
+           
+           window.alert("Please enter at least one polynomial");
+        }
+       
                       
        
        var final_Array= [];
@@ -35,11 +122,13 @@
               
              // loop through the array of zeros to be pushed on the final array
              
-             for (var k = 0; k < Array_ofNumbers.length; k++) {             
+             for (var k = 0; k < Array_ofNumbers.length; k++) {
+                 
                             
                    var Numbers = Array_ofNumbers[k];
                     
-                    final_Array.push(Numbers)                  
+                    final_Array.push(Numbers) 
+                     
                 }
              
         final_Array.push(coef_array[1]);
@@ -70,11 +159,13 @@
                 // loop through the array of zeros to be pushed on the final array
                 
                 for (var k = 0; k < arrayOfNumbers.length; k++) {
-                                  
+                    
+                        
                    var Numbers = arrayOfNumbers[k];
                     
                     final_Array.push(Numbers) 
-                          
+                    
+                    
                 }
                   
                 
@@ -84,9 +175,13 @@
                 if (exp_array.length != coef_array.length) {
                     
                     final_Array.push(coef_array[coef_last]);
-                }             
+                }
+        
+            
         }
-             }  
+             }
+       
+        
               
            if (exp_array[exp_last] != 1) {
                
@@ -95,9 +190,11 @@
               var temp2 = repeatElem(0, exp_array[exp_last]-1);
                
                var arrayOfNumbers2 = temp2.map(Number);
-                       
+               
+               
                // loop through the array of zeros to be pushed on the final array
-          
+    
+               
                 for (var l = 0; l < arrayOfNumbers2.length; l++) {
                     
                         
@@ -109,12 +206,17 @@
                     
                     final_Array.push(Numbers2)
                     
-                }            
+                }
+               
+              
             }  
        }
        
     final_Array.reverse();
        
+       
+      
+      
        return final_Array;
           
       } 
@@ -124,7 +226,9 @@
       function repeatElem(elem, n){
         var arr = [];
              for (var i=0; i<n; i++) {
-               arr = arr.concat(elem)       
+               arr = arr.concat(elem);
+    
+             
              }
                   return arr;
 }
