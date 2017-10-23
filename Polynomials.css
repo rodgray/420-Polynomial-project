@@ -24,12 +24,13 @@ ul {
             padding-bottom:20px
     
 }
- header a {
+header a {
             color: #fff;
             text-decoration: none;
             text-transform: uppercase;
             font-size: 16px;
         }
+
         
 header li {
             float: left;
@@ -47,6 +48,10 @@ header nav {
             float: right;
             margin-top: 10px;
         }
+#plusIcon {
+    
+    color: #CE2400;
+}
 #box {
     text-align: center;
     margin-top: 150px
@@ -54,4 +59,33 @@ header nav {
 header .highlight {
     color: #CE2400;
             font-weight: bold;
+}
+
+#output {
+    
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+#examples {
+    
+text-align: center;
+}
+
+#Addition:hover {
+  font-weight: bold;  
+    color: red;
+}
+#Difference:hover {
+  font-weight: bold;  
+}
+#addTerm:hover {
+  font-weight: bold; 
+    color: red;
+}
+#removeTerm:hover {
+  font-weight: bold;  
 }
