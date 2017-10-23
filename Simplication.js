@@ -26,20 +26,14 @@
               
                poly = coefficent.value + 'x^' + exponent.value + " ";
               
-              
-              
- 
         document.getElementById("output").innerHTML = document.getElementById("output").innerHTML + poly; 
               
-              
-              
+                     
         document.getElementById("coefficent").value = "";
               document.getElementById("exponent").value = "";
               
           }    
-      
-      
-      
+         
      function removeFunction() {
       
       coef_array.pop();
@@ -180,8 +174,7 @@
             
         }
              }
-       
-        
+         
               
            if (exp_array[exp_last] != 1) {
                
@@ -212,10 +205,7 @@
             }  
        }
        
-    final_Array.reverse();
-       
-       
-      
+    final_Array.reverse();   
       
        return final_Array;
           
