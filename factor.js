@@ -89,18 +89,31 @@ function descartes(coeff){
 }
 
 function syntheticDivision(array, divi){
-    
-       result = [];
-        for (var i = array.length - 1; i >= 0 ; i--) {
-            if (i == array.length - 1) {
-                result[i] = array[i];
+    finalResult = [];
+    if (array.length == 3){
+        quad = quadratic(array);
+        finalResult.push(quad);
+    }
+    else {
+        for (var j = 0; j < divi.length; j++) {
+            result = [];
+            for (var i = array.length - 1; i >= 0 ; i--) {
+                if (i == array.length - 1) {
+                    result[i] = array[i];
+                }
+                else {
+                    result[i] = array[i] + (divi[j] * result[i + 1]);
+                } 
             }
-            else {
-                result[i] = array[i] + (divi * result[i + 1]);
-            }  
-        }
 
-   return result;
+        if (result[0] == 0) {
+            new_result = result.slice(1);
+            new_result = syntheticDivision(new_result, factor(new_result))
+           finalResult.push(divi[j]);
+        }
+    }
+}
+   return finalResult;
 }
 
 function quadratic(arr) {
@@ -154,47 +167,41 @@ function simplify(num) {
 function roots(array) {
     var finalResult = []
     p_q = rationalZero(array)
+    debug(p_q);
     des = descartes(array)
+    debug(des);
+    sd = syntheticDivision(array, p_q);
+    debug(sd);
 
-    for (var j = 0; j < p_q.length; j++) {
-        p_q_indi = rationalZero(array)
-        if (array.length == 3) {
-            quadRes = quadratic(array);
-            finalResult = finalResult.concat(quadRes);
-        }
+    // for (var j = 0; j < p_q.length; j++) {
+    //     p_q_indi = rationalZero(array)
+    //     if (array.length == 3) {
+    //         quadRes = quadratic(array);
+    //         finalResult = finalResult.concat(quadRes);
+    //     }
 
-        else if (arry.length == 2) {
-            ans = array[1]
-        }
+    //     else if (array.length == 2) {
+    //         ans = array[1]
+    //     }
 
-        array = syntheticDivision(array, p_q_indi[j])
-        console.log(array)
-        //console.log(array)
-        if (array[0] == 0) {
-            array = array.slice(1);
-            //new_result = syntheticDivision(new_result, factor(new_result))
-            finalResult.push(p_q_indi[j]);
-        }
-    }
+    //     array = syntheticDivision(array, p_q_indi[j])
+    //     //console.log(array)
+    //     //console.log(array)
+    //     if (array[0] == 0) {
+    //         array = array.slice(1);
+    //         //new_result = syntheticDivision(new_result, factor(new_result))
+    //         finalResult.push(p_q_indi[j]);
+    //     }
+    // }
 
-    return finalResult;
+    // return finalResult;
 
 }
 
  array = [-9, 3, 3, 1, 2]
  //array = [-6, -5, 2, 1]
-// //array = [9, 6, 3, 2]
-// //array = [10, 6, 1]
-
-//p_q = rationalZero(array) 
-//debug(p_q)
-
-//des = 'descartes rule : ' + descartes(array)
-//debug(des)
-
-//sd = 'sythetic division : ' + syntheticDivision(array, p_q)
-//debug(sd)
-//console.log(sd)
+ //array = [9, 6, 3, 2]
+ //array = [10, 6, 1]
 
 result = roots(array)
-console.log('final results:' + result)
+//debug(result);
