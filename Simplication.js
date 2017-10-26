@@ -1,15 +1,12 @@
- var coefficent = document.getElementById("coefficent");
+         
+      var coefficent = document.getElementById("coefficent");
       
         var exponent = document.getElementById("exponent");
       
         var coef_array = [];
       
         var exp_array = [];
-      
-     var  countofAddition = 0;
-      
-     var  countofDifference = 0;
-           
+                 
 
   var exp_last = exp_array.length - 1;
 
@@ -19,21 +16,29 @@
       
           function addFunction() {
               
-              coef_array.push(coefficent.value);
               
-              exp_array.push(exponent.value);
+                  
+              coef_array.push(parseInt(coefficent.value));
               
+              exp_array.push(parseInt(exponent.value));
               
+
+              
+              console.log(coef_array);
+              console.log(exp_array);
                poly = coefficent.value + 'x^' + exponent.value + " ";
               
+ 
         document.getElementById("output").innerHTML = document.getElementById("output").innerHTML + poly; 
               
-                     
+              
+              
         document.getElementById("coefficent").value = "";
               document.getElementById("exponent").value = "";
               
           }    
-         
+      
+           
      function removeFunction() {
       
       coef_array.pop();
@@ -42,44 +47,12 @@
          
          var string = document.getElementById("output").value;
          
-         var inputlength = document.getElementById("output").innerHTML;
+      document.getElementById("output").innerHTML = document.getElementById("output").innerHTML + arrayofPoly.splice(arrayofPoly.length - 1,1);
          
-         
-         window.alert(inputlength);
       
       } 
       
-         function additionFunction() {
-             
-             if (coef_array.length === 0 && exp_array.length === 0) {
-           
-           window.alert("Please enter at least one polynomial");
-        }
-             
-          
-             else {
-          document.getElementById("output").innerHTML += "+";
-             
-             countofAddition++;
-             }
-          
-      }
-      
-         function differenceFunction() {
-             
-             if (coef_array.length === 0 && exp_array.length === 0) {
-           
-           window.alert("Please enter at least one polynomial");
-        }
-             else {
-          
-          document.getElementById("output").innerHTML += "-";
-             
-             countofDifference++;
-                 
-             }
-          
-      }
+        
       
 
    
@@ -90,6 +63,7 @@
       }
    
    function goFunction() {
+       
        
         if (coef_array.length === 0 && exp_array.length === 0) {
            
@@ -174,7 +148,8 @@
             
         }
              }
-         
+       
+        
               
            if (exp_array[exp_last] != 1) {
                
@@ -205,9 +180,12 @@
             }  
        }
        
-    final_Array.reverse();   
+    final_Array.reverse();
+       
+       
       
-       return final_Array;
+      
+       console.log(final_Array);
           
       } 
    
@@ -222,3 +200,4 @@
              }
                   return arr;
 }
+  
