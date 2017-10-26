@@ -37,8 +37,6 @@
            <td> </td>
            <td> Coefficent <input type="text" name="count" id= "coefficent" size="2"> </td>
            <td> Exponent <input type ="text" id="exponent" size="1"> </td>
-           <td><button type="button" id="Addition" onclick="additionFunction()">Addition</button></td>
-           <td><button type="button" id="Difference" onclick="differenceFunction()">Difference</button></td>
            <td><button type="button" id="addTerm" onclick="addFunction()">Add term</button></td>
            <td><button type="button" id="removeTerm" onclick="removeFunction()" > Remove term</button></td>
            <td><button type="submit" class="btn btn-danger"
@@ -49,7 +47,15 @@
    
     </section>
     <section> 
-        <p id="output">Problem:f(x) = </p>
+        <p id="output">f(x) = </p>
     </section>
-       </body>
+    <div id="solution">
+        Solution 
+        <section id="result">
+        
+        </section>
+    
+    </div>
+    </body>
 </html>
+
