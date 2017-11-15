@@ -35,27 +35,27 @@
    <form action="" >
        <tr>
            <td> </td>
-           <td> Coefficent <input type="text" name="count" id= "coefficent" size="2"> </td>
-           <td> Exponent <input type ="text" id="exponent" size="1"> </td>
-           <td><button type="button" id="addTerm" onclick="addFunction()">Add term</button></td>
-           <td><button type="button" id="removeTerm" onclick="removeFunction()" > Remove term</button></td>
-           <td><button type="submit" class="btn btn-danger"
-                       id="goButton" onclick="goFunction()">GO</button></td>
+           
+           <td> Enter the Polynomial :F(x) = <input type ="text" id="polynomial"> </td>
+           <td><button type="button" class="btn btn-danger btn-custom search"
+                       id="goButton">GO</button></td>
        </tr>
     </form>
-    
+        <form>
+     <select id="showSteps" onchange="hideSteps()" >
+         <option>showsteps</option>
+         <option>hidesteps</option>
+         <option>newpolynomial</option>
+             </select>
+        </form>
    
     </section>
-    <section> 
-        <p id="output">f(x) = </p>
-    </section>
-    <div id="solution">
-        Solution 
+    <div id="container">
+        <div id = "result">
         <section id="result">
         
         </section>
-    
+        </div>
     </div>
-    </body>
+       </body>
 </html>
-
