@@ -5,6 +5,7 @@ body {
     height:100%;
     width:100%;
     background-image:url(background5.jpg);
+    background-color: #2391B0;
     background-size: cover;
    
 }
@@ -94,7 +95,7 @@ text-align: center;
      white-space: pre-line;
     font-size:18px;
        font-family:"Comic Sans MS", cursive, sans-serif;
-    
+    font-weight: bold;
 }
 
 span {
