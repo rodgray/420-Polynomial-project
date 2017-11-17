@@ -1,4 +1,3 @@
-      
         
   $(document).ready(function(){
   
@@ -37,6 +36,19 @@
       var polytoShow = "";
        var polytoShow1 = "";
        var polytoShow2 = "";
+    var a = 0;
+    var b = 0;
+    var c = 0;
+    var bTimesb = 0;
+    var fourac = 0;
+    var denom = 0;
+    var OverallSecondOfSythetic = [];
+    var OverallFinalOfSythetic = [];
+      var finalArray = [];
+      var showsteps = "";
+      var arrayReverse = [];
+      var left = [];
+      var right = [];
       
       
       
@@ -60,9 +72,7 @@ function hideSteps() {
     
     else if (x == "showsteps") {
         
-        
-        
-        document.getElementById("container").innerHTML = " <span>Steps</span> <br> We can use the Rational Zeros Theorem to find all the rational zeros of a polynomial. Here are the steps:" + " <br> <span>Rational Roots</span>" + " <br> The constant term is " + coef_array[max1] + " <br> The leading coefificent is " + coef_array[0] + " <br> Find the factors of the constant term. Factors of the constant term:" + factofCoefficient + " <br> Find the factors of the leading coefficent. Factors of the leading coefficent term:" + factofLeadingTerm + "  <br> Find the possible values of the constant term divided by the leading coefficent. The values are: " + p_q + "<br>" + "<br> <span> Decartes Rule of Signs</span>" + " <br>Count how many times the signs change in the polynomial" + " <br> The sign changes " + count0 + " times in the first polynomial" + " <br> Count how many times the signs change in f(-x)" + " <br> The sign changes" + count1 + "times in the f(-x) polynomial" + " <br> The values from decartes are " + [count0, count1] + "<br>" + "<br> <span>Synthetic Division</span>" + "<br> The values from synthetic division are " + revised_sd + "<br>" ;
+        document.getElementById("container").innerHTML = showsteps;
         
         
     }
@@ -109,13 +119,17 @@ function goFunction() {
     
       var capitalStrings = /[ABCDEFGHIJKLMNOPQRSTUVWYZ]/;
     
-    var symbols = /[\W^+-]/;
+    var symbols = /[^\w\^\-\+]/;
+    
+    var symbols1 = /[(^\x\^\d)]/;
     
    var spacesCheck =  spaces.test(polynomial.value);
     
     var stringsCheck = strings.test(polynomial.value);
     
     var symbolsCheck = symbols.test(polynomial.value);
+    
+    var symbols1Check = symbols.test(polynomial.value);
     
     
      var capitalStringsCheck = capitalStrings.test(polynomial.value);
@@ -139,6 +153,16 @@ function goFunction() {
         window.alert("Enter a valid polynomial");
      }
   else if (capitalStringsCheck == true) {
+        
+        window.alert("Enter a valid polynomial");
+     }
+    
+     else if (symbolsCheck == true) {
+        
+        window.alert("Enter a valid polynomial");
+     }
+    
+      else if (symbols1Check == true) {
         
         window.alert("Enter a valid polynomial");
      }
@@ -317,7 +341,6 @@ function rationalZero(coeff){
     }
     p_q = p_q.concat(neg_p_q)
     
-    
          
     return p_q
     
@@ -392,11 +415,13 @@ function syntheticDivision(array, divi){
 }
 
 function quadratic(arr) {
-    var a = arr[2];
-    var b = arr[1];
-    var c = arr[0];
+     a = arr[2];
+     b = arr[1];
+     c = arr[0];
+    bTimesb = b * b;
+    fourac = 4 * a * c;
     var underRoot = (b * b) - (4 * a * c);
-    var denom = 2 * a;
+     denom = 2 * a;
    var first = (-b / denom);
 
    var res = [];
@@ -450,6 +475,19 @@ var cleanArray = a.filter((value,index,self)=>{
 return cleanArray;
           
 }
+      
+      function finalDescartes(num) {
+          
+var completeDescartes = [];
+          
+for (var i = num; i >= 0; i = i - 2) {
+    
+completeDescartes.push(i)
+}
+
+return completeDescartes;
+}
+      
 
 function roots(array) {
     
@@ -466,6 +504,13 @@ function roots(array) {
    var revised_p_q1 = removeDuplicate(p_q1);
 
    console.log(revised_p_q1);
+        
+        var leftEnd = Math.ceil(revised_p_q1.length/2),
+         
+        left =  revised_p_q1.slice(0,leftEnd);
+        
+        right =  revised_p_q1.slice(leftEnd);
+  
     
    var des = descartes(array)
     
@@ -475,16 +520,79 @@ function roots(array) {
         
       var merge = [].concat.apply([],sd);
         
+        var countofPostiveDescartes = finalDescartes(count0);
+        
+        console.log(countofPostiveDescartes);
+        
+         var countofNegativeDescartes = finalDescartes(count1);
+        
+           console.log(countofNegativeDescartes);
 
     revised_sd = removeDuplicate(merge);
 
    console.log(revised_sd);
-    
-                                   
-                                   
-                                   
         
-         document.getElementById("container").innerHTML = " <span>Steps</span> <br> We can use the Rational Zeros Theorem to find all the rational zeros of a polynomial. Here are the steps:" + " <br> <span>Rational Roots</span>" + " <br> look for the constant term. The constant term is " + coef_array[max1] + " <br> look for the leading coefficent. The leading coefificent is " + coef_array[0] + " <br> Find the factors of the constant term. Factors of the constant term:" + factofCoefficient + " <br> Find the factors of the leading coefficent. Factors of the leading coefficent term:" + factofLeadingTerm + "  <br> Find the possible values of the constant term divided by the leading coefficent. The values are: " + p_q + "<br>" + "<br> <span> Decartes Rule of Signs</span>" + " <br>Count how many times the signs change in the f(x) polynomial: f(x) =  " + polytoShow1 +  " <br> The sign changes " + count0 + " times in the first polynomial" + " <br> Count how many times the signs change in f(-x) polynomial: f(-x) = " + polytoShow2 + " <br> The sign changes " + count1 + " times in the f(-x) polynomial" + " <br> The values from decartes are " + [count0, count1] + "<br>" + "<br> <span>Synthetic Division</span>" + " <br> Go through the values of p/q and perform synthetic divison. If the result is 0, then p/q is a root." + "For this equation, " + "<br> The values from synthetic division are " + revised_sd + "<br>" ;
+        
+                                    
+        
+         document.getElementById("container").innerHTML = " <span>Steps</span> <br> We can use the Rational Zeros Theorem to find all the rational zeros of a polynomial. Here are the steps:" + " <br> <span> <br> Rational Roots</span>" + " <br> look for the constant term. The constant term is " + coef_array[max1] + " <br> look for the leading coefficent. The leading coefificent is " + coef_array[0] + " <br> Find the factors of the constant term. Factors of the constant term:" + factofCoefficient + " which is p." + " <br> Find the factors of the leading coefficent. Factors of the leading coefficent term:" + factofLeadingTerm + " which is q" + "  <br> Find the possible values of the p divided by q. The values are: " + left + "<br>" + right + "<br>" + "<br> <span> Decartes Rule of Signs</span>" + " <br>Count how many times the signs change in the f(x) polynomial: f(x) =  " + polytoShow1 +  " <br> The sign changes " + count0 + " times in the first polynomial" + " <br> So the possible positive zeros are " + countofPostiveDescartes + " <br> Count how many times the signs change in f(-x) polynomial: f(-x) = " + polytoShow2 + " <br> The sign changes " + count1 + " times in the f(-x) polynomial" + " <br> So  the possible negative zeros are " + countofNegativeDescartes + " <br> The values from decartes are " + [count0, count1] + "<br>" + "<br> <span>Synthetic Division</span>" + " <br> Go through the values of p/q and perform synthetic divison. <br> If the result is 0, then p/q is a root. <br>  If the polynomial breaks down to a quadratic, then you can use the quadratic formula " + " <br> For this equation, the roots from synthetic division are " + revised_sd + "<br>" + "Here is how synthetic division or quadratic was performed on these roots." ;
+        
+         arrayReverse = array.slice(0);
+        arrayReverse.reverse();
+        
+        for (var i = 0; i < revised_sd.length; i++) {
+     
+        if (typeof(revised_sd[i]) === 'number') {
+            var secondPart = [];
+            var finalSytheticHelper = [];
+            for (var j = array.length - 1; j >= 0 ; j--) {
+                if (j === array.length - 1) {
+                    secondPart[j] = 0;
+                }
+                else {
+                    secondPart[j] = revised_sd[i] * finalSytheticHelper[j + 1];
+                } 
+                finalSytheticHelper[j] = secondPart[j] + array[j];
+            }
+            
+            console.log(secondPart);
+            var newArray1 = secondPart.slice(0);
+            var newArray2 = finalSytheticHelper.slice(0);
+            
+            newArray1.reverse();
+            newArray2.reverse();
+            
+            newArray1.toString();
+            newArray2.toString();
+        
+           
+            
+
+            
+            document.getElementById("container").innerHTML += " <br>  For " + revised_sd[i] + ", we used synthetic division. <br> First bring down the leading coeffient of the coeffients of the polynomial. <br> The leading coefficent for this synthetic is "  + array[0] + ". <br> Then multiply " + revised_sd[i] + " by the leading coefficent. <br> Add that value to the next value of the coeffcient. Then multiply that value by " + revised_sd[i] + ". <br> Repeat these steps until you reach to the end. If the result is zero then it is a root. <br> This is the graphical representation of the synthetic division for " + revised_sd[i] + "<br>" + revised_sd[i] + "| " + arrayReverse + "<br>" + "| " + newArray1 + "<br>" + "   -------------   <br>" + "| " + newArray2 + "<br>" + ""; 
+            
+            
+        }
+         else  {
+             
+             finalArray.push(revised_sd[i]);
+                
+         }
+    }
+          var  bSquared = b * b;
+             
+             var FouraTimesc = 4 * a * c;
+             
+             var twoTimesA = 2 * a;
+        
+        if (finalArray.length > 0) {
+             
+              document.getElementById("container").innerHTML += " <br> For " + finalArray[0] + " and " + finalArray[1] +  " , we used the quadratic formula which is -b+-sqrt(b^2-4ac)/2a. " + " <br> The a, b , and c values are " + a + ", " + b + ", " + c + " <br> So plugging these values into the quadratic formula, we get that the quadratic formula = " + b + "+-sqrt("+ bSquared + "-" + FouraTimesc + ")/" + twoTimesA + " <br> Now use basic Algebra to solve the equation.";
+        }
+        
+    showsteps = document.getElementById("container").innerHTML;
+        
     }
     
 }
+    
